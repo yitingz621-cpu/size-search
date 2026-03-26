@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>尺寸查詢系統</title>
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    margin-top: 100px;
+}
+input {
+    padding: 10px;
+    font-size: 16px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: blue;
+}
+</style>
+</head>
+<body>
+
+<h1>衣服尺寸查詢系統</h1>
+<p>請輸入你的名字</p>
+
+<input type="text" id="nameInput" placeholder="輸入名字">
+<button onclick="search()">查詢</button>
+
+<div id="result"></div>
+
+<script>
+const data = {
+    "鄭伊庭": ["L"],
+    "茜如": ["S"],
+    "方品喬": ["M"],
+    "張詠柔": ["L"],
+    "31301": ["L"],
+    "林彥廷": ["L","M"],
+    "邱鈺淳": ["L"],
+    "廖彥寧": ["M"],
+    "歐喬妮": ["M"],
+    "林宥均": ["M"],
+    "zchunjun99": ["M"],
+    "曾樂安": ["S"],
+    "陳姿羽": ["S"],
+    "周忠昕": ["M"],
+    "劉盈希": ["M","L","XL*2"],
+    "黃詩雯": ["M"]
+};
+
+function search() {
+    const name = document.getElementById("nameInput").value.trim();
+    const result = document.getElementById("result");
+
+    if (data[name]) {
+        result.innerHTML = "你的尺寸是：" + data[name].join(", ");
+    } else {
+        result.innerHTML = "查無資料";
+    }
+}
+</script>
+
+</body>
+</html>
